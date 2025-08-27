@@ -1,0 +1,79 @@
+/* Simple, clean, print-friendly resume styles */
+:root{
+  --bg: #0b0c0f;
+  --card: #11131a;
+  --text: #e6e7eb;
+  --muted: #b8bdc9;
+  --accent: #5aa3ff;
+  --pill: #1a1f2b;
+  --border: #232638;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji','Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+.container{
+  max-width: 950px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.header{
+  background: linear-gradient(180deg, var(--card), transparent);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.name{margin:0;font-size: 42px; line-height:1.2}
+.title{margin:6px 0 0 0; color: var(--muted); font-weight:500}
+.contact, .meta{margin-top:10px; color: var(--muted); display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+.contact a{color: var(--text); text-decoration:none; border-bottom:1px dashed transparent}
+.contact a:hover{border-bottom-color: var(--accent)}
+
+.section{
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.section h2{margin:0 0 10px 0; font-size: 20px; letter-spacing: .2px}
+.role{padding:14px 0; border-top:1px solid var(--border)}
+.role:first-of-type{border-top:none}
+.role-header{display:flex; flex-direction:column; gap:6px; margin-bottom:6px}
+.role h3{margin:0;font-size:18px}
+.role-meta{color:var(--muted); display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+.dot{opacity:.6}
+.role ul{margin:8px 0 0 18px}
+.pill-list{display:flex; flex-wrap:wrap; gap:8px; padding:0; margin:0; list-style:none}
+.pill-list li{background: var(--pill); border:1px solid var(--border); padding:6px 10px; border-radius:999px}
+.two-col{display:grid; grid-template-columns: 1fr; gap:14px}
+.two-col h3{margin:.2rem 0 .4rem 0}
+@media (min-width: 720px){
+  .two-col{grid-template-columns: 1fr 1fr}
+}
+.footer{display:flex; justify-content:center; margin: 28px 0 10px}
+.btn{
+  background: var(--accent);
+  color: #081018;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn:hover{filter:brightness(1.1)}
+/* Print styles */
+@media print{
+  body{background:#fff;color:#000}
+  .header, .section{background:#fff;border-color:#ddd}
+  .name{color:#000}
+  .contact a{color:#000;border:none}
+  .btn, .footer{display:none}
+  .container{margin:0}
+}
