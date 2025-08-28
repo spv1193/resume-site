@@ -34,12 +34,15 @@ body {
   .header-grid { grid-template-columns: 1fr auto; }
 }
 
-.name { margin: 0; font-size: 28px; letter-spacing: 0.2px; }
+.name { margin: 0; font-size: 28px; letter-spacing: 0.2px; white-space: nowrap; }
 .role { margin: 4px 0 0 0; color: var(--muted); }
 
 .contact { list-style: none; margin: 0; padding: 0; display: flex; gap: 14px; flex-wrap: wrap; }
 .contact a { color: var(--text); text-decoration: none; border-bottom: 1px dashed transparent; }
 .contact a:hover { color: var(--accent-2); border-color: var(--accent-2); }
+/* Emphasize the Download link in blue */
+.contact a.download-link { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+.contact a.download-link:hover { color: var(--accent-2); border-bottom-color: var(--accent-2); }
 
 main { display: grid; gap: 16px; margin-top: 16px; }
 
