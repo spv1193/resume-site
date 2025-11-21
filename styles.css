@@ -63,10 +63,15 @@ main { display: grid; gap: 16px; margin-top: 16px; }
 
 h2 { margin: 0 0 12px 0; font-size: 18px; color: var(--accent-2); letter-spacing: 0.3px; }
 h3 { margin: 0 0 6px 0; font-size: 15px; }
+h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text); }
 .lead { color: var(--muted); }
 
 .skills-grid { display: grid; gap: 12px; }
 @media (min-width: 720px) { .skills-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.technical-skills { display: grid; gap: 16px; }
+.technical-skills > div { display: grid; gap: 4px; }
+.technical-skills h4 { margin-top: 0; }
 
 .list { margin: 0; padding-left: 18px; }
 .list.tight { padding-left: 16px; }
