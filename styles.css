@@ -66,6 +66,11 @@ h3 { margin: 0 0 6px 0; font-size: 15px; }
 h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text); }
 .lead { color: var(--muted); }
 
+.contact-details { display: grid; gap: 8px; }
+.contact-details p { margin: 0; }
+.contact-details a { color: var(--text); text-decoration: none; border-bottom: 1px dashed transparent; }
+.contact-details a:hover { color: var(--accent-2); border-color: var(--accent-2); }
+
 .skills-grid { display: grid; gap: 12px; }
 @media (min-width: 720px) { .skills-grid { grid-template-columns: repeat(2, 1fr); } }
 
