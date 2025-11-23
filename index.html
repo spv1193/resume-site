@@ -28,6 +28,7 @@
           <li><strong>Visa Type:</strong> <span>Dependent Visa (Tier 2) <strong>Valid til:</strong> 27 May 2027</span></li>
           <li><strong>No Sponsership Needed.</strong></li>
           <li><a class="download-link" href="#" id="download-pdf" onclick="window.print(); return false;">Download as PDF</a></li>
+          <li><a class="download-link" href="#" id="download-word" onclick="downloadAsWord(); return false;">Download as Word</a></li>
         </ul>
       </div>
     </header>
@@ -211,6 +212,76 @@
 
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
+      
+      function downloadAsWord() {
+        // Clone the main content
+        const content = document.querySelector('main').cloneNode(true);
+        
+        // Remove download links from cloned content
+        const downloadLinks = content.querySelectorAll('.download-link');
+        downloadLinks.forEach(link => link.remove());
+        
+        // Get header information
+        const header = document.querySelector('.site-header').cloneNode(true);
+        const headerLinks = header.querySelectorAll('.download-link');
+        headerLinks.forEach(link => link.remove());
+        
+        // Create a temporary container
+        const tempDiv = document.createElement('div');
+        tempDiv.appendChild(header);
+        tempDiv.appendChild(content);
+        
+        // Get HTML content
+        const htmlContent = tempDiv.innerHTML;
+        
+        // Create Word document HTML
+        const wordContent = `
+          <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+          <head>
+            <meta charset='utf-8'>
+            <title>Sreenath P V - Resume</title>
+            <!--[if gte mso 9]>
+            <xml>
+              <w:WordDocument>
+                <w:View>Print</w:View>
+                <w:Zoom>90</w:Zoom>
+                <w:DoNotOptimizeForBrowser/>
+              </w:WordDocument>
+            </xml>
+            <![endif]-->
+            <style>
+              body { font-family: 'Inter', Arial, sans-serif; margin: 20px; line-height: 1.6; }
+              h1 { font-size: 24px; margin: 10px 0; }
+              h2 { font-size: 18px; margin: 12px 0 8px 0; color: #333; }
+              h3 { font-size: 16px; margin: 10px 0 6px 0; }
+              h4 { font-size: 14px; margin: 8px 0 4px 0; font-weight: 600; }
+              p { margin: 4px 0; }
+              ul { margin: 4px 0; padding-left: 20px; }
+              li { margin: 2px 0; }
+              .card { margin: 12px 0; padding: 12px; border: 1px solid #ddd; }
+              .technical-skills { display: table; width: 100%; }
+              .tech-skills-col { display: table-cell; width: 50%; vertical-align: top; padding-right: 20px; }
+            </style>
+          </head>
+          <body>
+            ${htmlContent}
+          </body>
+          </html>
+        `;
+        
+        // Create blob and download
+        const blob = new Blob(['\ufeff', wordContent], {
+          type: 'application/msword'
+        });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'Sreenath_P_V_Resume.doc';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      }
     </script>
   </body>
   </html>
