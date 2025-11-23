@@ -67,7 +67,7 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
 .lead { color: var(--muted); }
 
 .skills-grid { display: grid; gap: 12px; }
-@media (min-width: 720px) { .skills-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 720px) { .skills-grid { grid-template-columns: repeat(2, 1fr); } }
 
 .technical-skills { display: grid; gap: 16px; }
 .technical-skills > div { display: grid; gap: 4px; }
