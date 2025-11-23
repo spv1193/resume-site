@@ -70,7 +70,9 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
 @media (min-width: 720px) { .skills-grid { grid-template-columns: repeat(2, 1fr); } }
 
 .technical-skills { display: grid; gap: 16px; }
-.technical-skills > div { display: grid; gap: 4px; }
+@media (min-width: 720px) { .technical-skills { grid-template-columns: repeat(2, 1fr); } }
+.tech-skills-col { display: grid; gap: 16px; }
+.tech-skills-col > div { display: grid; gap: 4px; }
 .technical-skills h4 { margin-top: 0; }
 
 .list { margin: 0; padding-left: 18px; }
