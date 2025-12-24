@@ -106,9 +106,34 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
   .card { box-shadow: none; border-radius: 0; border: none; padding: 4px 0; margin: 2px 0; }
   /* Allow Summary and Experience to flow together */
   #summary-title { page-break-after: avoid; }
-  #experience-title { page-break-before: avoid; }
+  #experience-title { 
+    page-break-after: avoid; 
+    page-break-before: avoid;
+    orphans: 3;
+    widows: 3;
+  }
   section[aria-labelledby="summary-title"] { page-break-after: avoid; }
-  section[aria-labelledby="experience-title"] { page-break-before: avoid; page-break-inside: auto; }
+  section[aria-labelledby="experience-title"] { 
+    page-break-before: auto; 
+    page-break-inside: auto;
+  }
+  /* Keep Experience heading with first job */
+  section[aria-labelledby="experience-title"] > h2 {
+    page-break-after: avoid;
+    orphans: 4;
+    widows: 4;
+  }
+  section[aria-labelledby="experience-title"] > article.job:first-of-type {
+    page-break-before: avoid;
+    page-break-inside: avoid;
+    margin-top: 0;
+  }
+  /* Ensure at least heading + some content stay together */
+  section[aria-labelledby="experience-title"] > h2 + article.job {
+    page-break-before: avoid;
+  }
+  /* Prevent orphaned headings */
+  h2 { orphans: 4; widows: 4; }
   .container { max-width: none; padding: 0; }
   a { color: inherit; text-decoration: none; }
   .job { page-break-inside: avoid; margin: 2px 0; }
