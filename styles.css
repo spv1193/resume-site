@@ -102,20 +102,21 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
 @media print {
   :root { --bg: #fff; --surface: #fff; --text: #000; --muted: #444; --border: #ddd; }
   body { background: #fff; margin: 0; padding: 0; }
-  .site-header { position: static; background: #fff; border: none; page-break-inside: avoid; margin: 0; padding: 0 0 2px 0; }
-  .header-grid { gap: 2px; }
-  .identity { gap: 8px; }
-  .avatar { width: 60px; height: 60px; }
-  .name { font-size: 24px; margin: 0; }
-  .role { margin: 2px 0 0 0; font-size: 14px; }
-  .contact { gap: 1px; margin: 0; }
-  .contact li { margin: 0; padding: 0; line-height: 1.3; }
+  .site-header { position: static; background: #fff; border: none; page-break-inside: avoid; margin: 0; padding: 0; }
+  .header-grid { gap: 1px; }
+  .identity { gap: 6px; }
+  .avatar { width: 50px; height: 50px; }
+  .name { font-size: 22px; margin: 0; line-height: 1.2; }
+  .role { margin: 1px 0 0 0; font-size: 13px; line-height: 1.2; }
+  .contact { gap: 0; margin: 0; font-size: 11px; }
+  .contact li { margin: 0; padding: 0; line-height: 1.2; }
   .card { box-shadow: none; border-radius: 0; border: none; padding: 0; margin: 0; background: transparent; }
   /* Ensure Summary starts immediately after header */
   section[aria-labelledby="summary-title"] { 
     page-break-before: auto;
     page-break-after: avoid;
-    margin-top: 2px;
+    margin-top: 0;
+    padding-top: 0;
   }
   /* Allow Experience to flow after Summary */
   section[aria-labelledby="experience-title"] { 
@@ -152,8 +153,22 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
   p { margin: 1px 0; }
   .lead { margin: 1px 0; }
   main { gap: 0 !important; margin-top: 0 !important; page-break-inside: auto; }
-  main > section:first-child { page-break-before: auto; margin-top: 2px; }
-  @page { margin: 1.5cm; }
+  main > section:first-child { page-break-before: auto; margin-top: 0; }
+  /* Hide any timestamps that might appear */
+  *::before, *::after { content: none !important; }
+  /* Reduce page margins to fit more content on first page */
+  @page { 
+    margin: 0.8cm 1.5cm;
+    size: A4;
+    /* Suppress headers and footers that might contain timestamps */
+    marks: none;
+  }
+  @page:first {
+    margin: 0.5cm 1.5cm;
+  }
+  /* Ensure content starts immediately */
+  body { margin: 0; padding: 0; }
+  html { margin: 0; padding: 0; }
 }
 
 

@@ -27,7 +27,7 @@
           <li><strong>Address:</strong> <span>127, Eyrescroft Bretton, Peterborough - PE3 8EU</span></li>
           <li><strong>Visa Type:</strong> <span>Dependent Visa (Tier 2) <strong>Valid til:</strong> 27 May 2027</span></li>
           <li><strong>No Sponsership Needed.</strong></li>
-          <li><a class="download-link" href="#" id="download-pdf" onclick="window.print(); return false;">Download as PDF</a></li>
+          <li><a class="download-link" href="#" id="download-pdf" onclick="downloadAsPDF(); return false;">Download as PDF</a></li>
           <li><a class="download-link" href="#" id="download-word" onclick="downloadAsWord(); return false;">Download as Word</a></li>
         </ul>
       </div>
@@ -208,6 +208,13 @@
 
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
+      
+      function downloadAsPDF() {
+        // Try to suppress headers/footers that might contain timestamps
+        // Note: Browser print settings may still add timestamps in metadata
+        // User should disable headers/footers in browser print dialog
+        window.print();
+      }
       
       function downloadAsWord() {
         // Clone the main content
