@@ -108,32 +108,25 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
   #summary-title { page-break-after: avoid; }
   #experience-title { 
     page-break-after: avoid; 
-    page-break-before: avoid;
-    orphans: 3;
-    widows: 3;
   }
   section[aria-labelledby="summary-title"] { page-break-after: avoid; }
   section[aria-labelledby="experience-title"] { 
     page-break-before: auto; 
     page-break-inside: auto;
   }
-  /* Keep Experience heading with first job */
+  /* Keep Experience heading with first job - but allow if space is tight */
   section[aria-labelledby="experience-title"] > h2 {
     page-break-after: avoid;
-    orphans: 4;
-    widows: 4;
+    orphans: 2;
+    widows: 2;
   }
   section[aria-labelledby="experience-title"] > article.job:first-of-type {
     page-break-before: avoid;
     page-break-inside: avoid;
     margin-top: 0;
   }
-  /* Ensure at least heading + some content stay together */
-  section[aria-labelledby="experience-title"] > h2 + article.job {
-    page-break-before: avoid;
-  }
   /* Prevent orphaned headings */
-  h2 { orphans: 4; widows: 4; }
+  h2 { orphans: 2; widows: 2; }
   .container { max-width: none; padding: 0; }
   a { color: inherit; text-decoration: none; }
   .job { page-break-inside: avoid; margin: 2px 0; }
@@ -151,7 +144,8 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
   .bullets li { margin: 2px 0; }
   p { margin: 2px 0; }
   .lead { margin: 2px 0; }
-  main { gap: 2px !important; margin-top: 4px !important; }
+  main { gap: 2px !important; margin-top: 4px !important; page-break-inside: auto; }
+  main > section:first-child { page-break-before: auto; }
   @page { margin: 1.5cm; }
 }
 
