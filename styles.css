@@ -101,51 +101,58 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
 /* Print styles */
 @media print {
   :root { --bg: #fff; --surface: #fff; --text: #000; --muted: #444; --border: #ddd; }
-  body { background: #fff; }
-  .site-header { position: static; background: #fff; border: none; page-break-inside: avoid; margin-bottom: 4px; padding-bottom: 4px; }
-  .card { box-shadow: none; border-radius: 0; border: none; padding: 4px 0; margin: 2px 0; }
-  /* Allow Summary and Experience to flow together */
-  #summary-title { page-break-after: avoid; }
-  #experience-title { 
-    page-break-after: avoid; 
+  body { background: #fff; margin: 0; padding: 0; }
+  .site-header { position: static; background: #fff; border: none; page-break-inside: avoid; margin: 0; padding: 0 0 2px 0; }
+  .header-grid { gap: 2px; }
+  .identity { gap: 8px; }
+  .avatar { width: 60px; height: 60px; }
+  .name { font-size: 24px; margin: 0; }
+  .role { margin: 2px 0 0 0; font-size: 14px; }
+  .contact { gap: 1px; margin: 0; }
+  .contact li { margin: 0; padding: 0; line-height: 1.3; }
+  .card { box-shadow: none; border-radius: 0; border: none; padding: 0; margin: 0; background: transparent; }
+  /* Ensure Summary starts immediately after header */
+  section[aria-labelledby="summary-title"] { 
+    page-break-before: auto;
+    page-break-after: avoid;
+    margin-top: 2px;
   }
-  section[aria-labelledby="summary-title"] { page-break-after: avoid; }
+  /* Allow Experience to flow after Summary */
   section[aria-labelledby="experience-title"] { 
     page-break-before: auto; 
     page-break-inside: auto;
+    margin-top: 0;
   }
-  /* Keep Experience heading with first job - but allow if space is tight */
+  /* Keep Experience heading with first job */
   section[aria-labelledby="experience-title"] > h2 {
     page-break-after: avoid;
-    orphans: 2;
-    widows: 2;
+    margin-top: 2px;
+    margin-bottom: 2px;
   }
   section[aria-labelledby="experience-title"] > article.job:first-of-type {
     page-break-before: avoid;
     page-break-inside: avoid;
     margin-top: 0;
   }
-  /* Prevent orphaned headings */
-  h2 { orphans: 2; widows: 2; }
-  .container { max-width: none; padding: 0; }
+  .container { max-width: none; padding: 0; margin: 0; }
   a { color: inherit; text-decoration: none; }
-  .job { page-break-inside: avoid; margin: 2px 0; }
+  .job { page-break-inside: avoid; margin: 1px 0; }
   .technical-skills { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
   .technical-skills > div { page-break-inside: avoid; }
   .tech-skills-col { gap: 8px !important; }
   .tech-skills-col > div { margin: 4px 0; }
   .download-link { display: none !important; }
-  h2 { margin: 0 0 4px 0; }
-  h3 { margin: 2px 0 2px 0; }
-  h4 { margin: 4px 0 2px 0; }
-  .list { margin: 2px 0; }
-  .list li { margin: 1px 0; }
-  .bullets { margin: 2px 0; }
-  .bullets li { margin: 2px 0; }
-  p { margin: 2px 0; }
-  .lead { margin: 2px 0; }
-  main { gap: 2px !important; margin-top: 4px !important; page-break-inside: auto; }
-  main > section:first-child { page-break-before: auto; }
+  h2 { margin: 0 0 2px 0; orphans: 2; widows: 2; }
+  h3 { margin: 1px 0 1px 0; }
+  h4 { margin: 3px 0 1px 0; }
+  .list { margin: 1px 0; }
+  .list li { margin: 0; }
+  .bullets { margin: 1px 0; }
+  .bullets li { margin: 1px 0; }
+  p { margin: 1px 0; }
+  .lead { margin: 1px 0; }
+  main { gap: 0 !important; margin-top: 0 !important; page-break-inside: auto; }
+  main > section:first-child { page-break-before: auto; margin-top: 2px; }
   @page { margin: 1.5cm; }
 }
 
