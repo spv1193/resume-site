@@ -110,7 +110,7 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
   .role { margin: 4px 0 0 0; font-size: 14px; }
   .contact { gap: 4px; margin: 0; }
   .contact li { margin: 0; padding: 0; }
-  .card { box-shadow: none; border-radius: 0; border: none; padding: 20px; margin: 0; background: transparent; }
+  .card { box-shadow: none; border-radius: 0; border: none; padding: 12px; margin: 0; background: transparent; }
   /* Ensure Summary and Experience flow together as one continuous section */
   section[aria-labelledby="summary-title"] { 
     page-break-before: auto;
@@ -123,14 +123,14 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
   #summary-title {
     page-break-after: avoid;
     margin-top: 0;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
   /* Experience heading is now inside Summary section - ensure it flows continuously */
   #experience-title {
     page-break-before: auto;
     page-break-after: avoid;
-    margin-top: 12px;
-    margin-bottom: 6px;
+    margin-top: 10px;
+    margin-bottom: 4px;
   }
   /* First job after Experience heading should stay with heading */
   #experience-title + article.job {
@@ -140,35 +140,40 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
   }
   .container { max-width: none; padding: 0; margin: 0; }
   a { color: inherit; text-decoration: none; }
-  .job { page-break-inside: avoid; margin: 8px 0; }
+  .job { page-break-inside: avoid; margin: 6px 0; orphans: 3; widows: 3; }
   .technical-skills { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
   .technical-skills > div { page-break-inside: avoid; }
   .tech-skills-col { gap: 8px !important; }
   .tech-skills-col > div { margin: 4px 0; }
   .download-link { display: none !important; }
-  h2 { margin: 0 0 12px 0; orphans: 2; widows: 2; }
-  h3 { margin: 0 0 6px 0; }
-  h4 { margin: 12px 0 6px 0; }
+  h2 { margin: 0 0 8px 0; orphans: 3; widows: 3; }
+  h3 { margin: 0 0 4px 0; orphans: 3; widows: 3; }
+  h4 { margin: 10px 0 4px 0; orphans: 3; widows: 3; }
   .list { margin: 0; }
-  .list li { margin: 4px 0; }
+  .list li { margin: 3px 0; }
   .bullets { margin: 0; }
-  .bullets li { margin: 6px 0; }
-  p { margin: 0 0 8px 0; }
-  .lead { margin: 0 0 8px 0; }
-  main { gap: 8px !important; margin-top: 8px !important; page-break-inside: auto; }
+  .bullets li { margin: 4px 0; orphans: 2; widows: 2; }
+  p { margin: 0 0 6px 0; orphans: 2; widows: 2; }
+  .lead { margin: 0 0 6px 0; orphans: 2; widows: 2; }
+  main { gap: 6px !important; margin-top: 6px !important; page-break-inside: auto; }
   main > section:first-child { page-break-before: auto; margin-top: 0; }
+  /* Allow sections to flow and fill blank spaces */
+  section { page-break-inside: auto; orphans: 3; widows: 3; }
+  article { orphans: 3; widows: 3; }
   /* Hide any timestamps that might appear */
   *::before, *::after { content: none !important; }
-  /* Reduce page margins to fit more content on first page */
+  /* Reduce page margins to fit more content and allow better flow */
   @page { 
-    margin: 1.5cm;
+    margin: 1.2cm 1.5cm;
     size: A4;
     /* Suppress headers and footers that might contain timestamps */
     marks: none;
   }
   @page:first {
-    margin: 1cm 1.5cm;
+    margin: 0.8cm 1.5cm;
   }
+  /* Allow content to flow back to fill blank spaces */
+  body { orphans: 3; widows: 3; }
   /* Ensure content starts immediately */
   body { margin: 0; padding: 0; }
   html { margin: 0; padding: 0; }
