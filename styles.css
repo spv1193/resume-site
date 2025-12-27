@@ -143,12 +143,19 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
   /* First job after Experience heading should stay with heading */
   #experience-title + article.job {
     page-break-before: avoid;
-    page-break-inside: avoid;
     margin-top: 0;
+  }
+  /* Keep job header together but allow content to split */
+  .job-header {
+    page-break-inside: avoid;
+    page-break-after: avoid;
   }
   .container { max-width: none; padding: 0; margin: 0; }
   a { color: inherit; text-decoration: none; }
-  .job { page-break-inside: avoid; margin: 3px 0; orphans: 3; widows: 3; }
+  /* Allow jobs to split across pages - only keep header together */
+  .job { page-break-inside: auto; margin: 3px 0; orphans: 2; widows: 2; }
+  /* Allow bullet lists to split across pages */
+  .bullets { page-break-inside: auto; }
   .technical-skills { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
   .technical-skills > div { page-break-inside: avoid; }
   .tech-skills-col { gap: 8px !important; }
@@ -160,7 +167,7 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
   .list { margin: 0; }
   .list li { margin: 3px 0; }
   .bullets { margin: 0; }
-  .bullets li { margin: 2px 0; orphans: 2; widows: 2; line-height: 1.3; }
+  .bullets li { margin: 2px 0; orphans: 1; widows: 1; line-height: 1.3; page-break-inside: auto; }
   p { margin: 0 0 2px 0; orphans: 2; widows: 2; }
   .lead { margin: 0 0 2px 0; orphans: 2; widows: 2; line-height: 1.4; }
   .availability-notice {
