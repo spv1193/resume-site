@@ -110,15 +110,15 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
 @media print {
   :root { --bg: #fff; --surface: #fff; --text: #000; --muted: #444; --border: #ddd; }
   body { background: #fff; margin: 0; padding: 0; }
-  .site-header { position: static; background: #fff; border: none; page-break-inside: avoid; margin: 0; padding: 0 0 2px 0; }
-  .header-grid { gap: 8px; align-items: start; }
+  .site-header { position: static; background: #fff; border: none; page-break-inside: avoid; margin: 0; padding: 0 0 1px 0; }
+  .header-grid { gap: 4px; align-items: start; }
   .identity { gap: 0; }
   .avatar { display: none; }
   .name { font-size: 28px; margin: 0; }
-  .role { margin: 2px 0 0 0; font-size: 14px; }
-  .contact { gap: 4px; margin: 0; }
-  .contact li { margin: 0; padding: 0; }
-  .card { box-shadow: none; border-radius: 0; border: none; padding: 12px; margin: 0; background: transparent; }
+  .role { margin: 1px 0 0 0; font-size: 14px; }
+  .contact { gap: 2px; margin: 0; }
+  .contact li { margin: 0; padding: 0; line-height: 1.2; }
+  .card { box-shadow: none; border-radius: 0; border: none; padding: 8px; margin: 0; background: transparent; }
   /* Ensure Summary and Experience flow together as one continuous section */
   section[aria-labelledby="summary-title"] { 
     page-break-before: auto;
@@ -131,14 +131,14 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
   #summary-title {
     page-break-after: avoid;
     margin-top: 0;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
   /* Experience heading is now inside Summary section - ensure it flows continuously */
   #experience-title {
     page-break-before: auto;
     page-break-after: avoid;
-    margin-top: 10px;
-    margin-bottom: 4px;
+    margin-top: 6px;
+    margin-bottom: 2px;
   }
   /* First job after Experience heading should stay with heading */
   #experience-title + article.job {
@@ -161,16 +161,19 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
   .list li { margin: 3px 0; }
   .bullets { margin: 0; }
   .bullets li { margin: 4px 0; orphans: 2; widows: 2; }
-  p { margin: 0 0 6px 0; orphans: 2; widows: 2; }
-  .lead { margin: 0 0 6px 0; orphans: 2; widows: 2; }
+  p { margin: 0 0 4px 0; orphans: 2; widows: 2; }
+  .lead { margin: 0 0 4px 0; orphans: 2; widows: 2; }
   .availability-notice {
-    margin: 8px 0;
-    padding: 8px 10px;
+    margin: 4px 0;
+    padding: 6px 8px;
     background: rgba(0,0,0,0.05);
     border-left: 3px solid #000;
     border-radius: 2px;
   }
-  main { gap: 6px !important; margin-top: 6px !important; page-break-inside: auto; }
+  /* Reduce spacing in Key Roles section */
+  p strong + h4 { margin-top: 4px; }
+  h4 { margin: 6px 0 2px 0; }
+  main { gap: 4px !important; margin-top: 4px !important; page-break-inside: auto; }
   main > section:first-child { page-break-before: auto; margin-top: 0; }
   /* Allow sections to flow and fill blank spaces */
   section { page-break-inside: auto; orphans: 3; widows: 3; }
@@ -185,7 +188,7 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
     marks: none;
   }
   @page:first {
-    margin: 0.8cm 1.5cm;
+    margin: 0.6cm 1.5cm;
   }
   /* Allow content to flow back to fill blank spaces */
   body { orphans: 3; widows: 3; }
