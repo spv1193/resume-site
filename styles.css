@@ -171,6 +171,7 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
   .tech-skills-col { gap: 8px !important; }
   .tech-skills-col > div { margin: 4px 0; }
   .download-link { display: none !important; }
+  .site-footer { display: none !important; }
   h2 { margin: 0 0 4px 0; orphans: 3; widows: 3; }
   h3 { margin: 0 0 4px 0; orphans: 3; widows: 3; }
   h4 { margin: 10px 0 4px 0; orphans: 3; widows: 3; }
