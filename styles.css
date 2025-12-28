@@ -81,6 +81,15 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
   border-left: 3px solid var(--accent);
   border-radius: 4px;
 }
+.availability-line {
+  margin: 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.availability-line strong {
+  font-weight: 700;
+}
 
 .skills-grid { display: grid; gap: 12px; }
 
@@ -172,12 +181,20 @@ h4 { margin: 12px 0 6px 0; font-size: 14px; font-weight: 600; color: var(--text)
   p { margin: 0 0 2px 0; orphans: 2; widows: 2; }
   .lead { margin: 0 0 2px 0; orphans: 2; widows: 2; line-height: 1.4; }
   .availability-notice {
-    margin: 2px 0;
-    padding: 4px 6px;
+    margin: 4px 0;
+    padding: 6px 8px;
     background: rgba(0,0,0,0.05);
     border-left: 3px solid #000;
     border-radius: 2px;
-    line-height: 1.3;
+  }
+  .availability-line {
+    margin: 6px 0;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .availability-line strong {
+    font-weight: 700;
   }
   /* Key Roles section - maintain spacing and font size */
   .key-role { margin: 12px 0; font-size: 15px; }
